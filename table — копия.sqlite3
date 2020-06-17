@@ -1,0 +1,41 @@
+.open database.sqlite3
+
+CREATE TABLE region (
+	id INTEGER PRIMARY KEY UNIQUE  NOT NULL,
+	name_region Text NOT NULL
+);	
+INSERT INTO region (id, name_region)
+VALUES
+	(1,'Краснодарский край'),
+	(2, 'Ростовская область'),
+	(3, 'Ставропольский край');
+	
+CREATE TABLE towns (
+	id INTEGER PRIMARY KEY UNIQUE  NOT NULL,
+	city TEXT  NOT NULL,
+	region_id INTEGER NOT NULL
+);
+
+INSERT INTO towns (id, city, region_id)
+VALUES 
+	(1, 'Краснодар', 1),
+    (2, 'Кропоткин', 1),
+    (3, 'Славянск', 1),
+    (4, 'Ростов', 2),
+    (5, 'Шахты', 2),
+    (6, 'Батайск', 2),
+    (7, 'Ставрополь', 3),
+    (8, 'Пятигорск', 3),
+    (9, 'Кисловодск', 3);
+	
+CREATE TABLE feedback(
+	id INTEGER PRIMARY KEY,
+	lastname TEXT NOT NULL,
+	user_name TEXT NOT NULL,
+    patronymic TEXT,
+    region TEXT,
+    city TEXT,
+    number TEXT,
+    e_mail TEXT,
+    comment TEXT NOT NULL
+);
